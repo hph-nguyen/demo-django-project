@@ -1,10 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>posts</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-</body>
-</html>
+{% block title %} Index {% endblock %}
+
+{% block navigation %}
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Navigation</a>
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                <li class="nav-item active"><a class="nav-link" href="http://127.0.0.1:8000">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="https://www.google.com/">Google</a></li>
+                <li class="nav-item"><a class="nav-link" href="https://www.th-nuernberg.de/fakultaeten/efi/">EFI TH Nürnberg</a></li>
+            </ul>
+        </div>
+    </nav>
+{% endblock %}
+{% block content %}
+    <div class ="jumbotron">
+        <h1 align = "center">Bootstrap Jumbotron</h1>
+    </div>
+    <h1>  Index der Posts-App.</h1>
+    <p>  Uhrzeit:{{ now }}</p>
+
+    {% if current.tm_hour < 12 %}
+        <p>Guten morgen!</p>
+    {% elif current.tm_hour < 18 %}
+        <p>Guten Tag!</p>
+    {% else %}
+        <p>Guten Abend!</p>
+    {% endif %}
+{% endblock %}
+
