@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %} Index {% endblock %}
+
+{% block content %}
+    <h1>Index der Polls-App.</h1>
+    <p>Uhrzeit:{{ now }}</p>
+
+{% if current.tm_hour < 12 %}
+    <p>Guten morgen!</p>
+{% elif current.tm_hour < 18 %} #Leerzeichnen beachten --> <18 == Error
+    <p>Guten Tag!</p>
+{% else %}
+    <p>Guten Abend!</p>
+{% endif %}
+{% endblock %}
