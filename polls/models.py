@@ -1,5 +1,7 @@
 from django.db import models
-#using model --> Create SQL-Tabelle mit Python ohne SQL-Query
+
+
+# using model --> Create SQL-Tabelle mit Python ohne SQL-Query
 
 class Notice(models.Model):
     notice_title = models.CharField(max_length=70)

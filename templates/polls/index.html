@@ -3,14 +3,22 @@
 {% block title %} Index {% endblock %}
 
 {% block content %}
-    <h1>Index der Polls-App.</h1>
-    <p>Uhrzeit:{{ now }}</p>
-
-{% if current.tm_hour < 12 %}
-    <p>Guten morgen!</p>
-{% elif current.tm_hour < 18 %} #Leerzeichnen beachten --> <18 == Error
-    <p>Guten Tag!</p>
-{% else %}
-    <p>Guten Abend!</p>
-{% endif %}
+    <div class="container">
+        {% for notice in notices %}
+            <h3> {{ notice.notice_title }}</h3>
+            <p>{{ notice.notice_text }}</p>
+        {% endfor %}
+    </div>
 {% endblock %}
+{% comment %}
+{% block navigation %}
+    <form method="POST">
+        Vorname:<br>
+        <input type = "text" name = "firstname" value = "Hans">
+        <br>
+        Nachname: <br>
+        <input type="text" name="firstname" value="Mustermann">
+        <br><br>
+        <button type = "submit"> Speichern </button>
+    </form>
+{% endblock %}{% endcomment %}
