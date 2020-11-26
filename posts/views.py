@@ -30,13 +30,13 @@ def index(request):
 def new(request):
     global form, newNotice
     if request.method == "POST":
-        form = NoticeForm( request.POST)
+        form = NoticeForm( request.POST )
     if form.is_valid():
         newNotice = Notice( notice_title=form.cleaned_data['title'],
                             notice_text=form.cleaned_data['text'],
                             pub_start=form.cleaned_data['start'],
                             pub_end=form.cleaned_data['end'] )
-    newNotice.save()
-    return redirect( 'index' )
-    context = {'form':NoticeForm()}
+        newNotice.save()
+        return redirect('posts')
+    context = {'form': NoticeForm()}
     return render( request, 'posts/edit.html', context )
