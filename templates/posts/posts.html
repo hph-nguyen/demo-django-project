@@ -29,8 +29,17 @@
     {% else %}
         <p>Guten Abend!</p>
     {% endif %}
-{% endblock %}
+    <style> table,td { border: 2px solid black;}</style>
+    <table>
+    {%  for notice in notices %}
+       <tr>
+            <td>{{ notice.notice_title }}</td>
+            <td>{{ notice.notice_text }}</td>
+            <td>{{ notice.pub_start }}</td>
+            <td>{{ notice.pub_end}}</td>
+        </tr>
+    {%  endfor %}
+    </table>
 
-{% block content2 %}
-
+    <p><a href="{% url 'new' %}" class="btn btn-info" role="button">Neue Nachricht</a></p>
 {% endblock %}
