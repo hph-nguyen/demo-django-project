@@ -6,6 +6,7 @@ import logging
 from django.contrib.auth.decorators import login_required
 import time
 from django.contrib.admin.views.decorators import staff_member_required
+
 logger = None
 
 def initLogger():
@@ -19,8 +20,9 @@ def index(request):
     initLogger()
     notices = Notice.objects.all()
     #notices = notices.filter(pub_start__lte=timezone.now())
-    notices = notices.filter(pub_end__gte=timezone.now())
-    context = {'notices': notices, 'current':time.localtime() }  #dictionary type
+    #notices = notices.filter(pub_end__gte=timezone.now())
+    current = time.strftime(" %H:%M - %d.%m.%y",time.localtime())
+    context = {'notices': notices, 'now': current, 'time':time.localtime()}  #dictionary type
     return render (request, 'posts/posts.html',context)
 
 @login_required

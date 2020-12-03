@@ -24,18 +24,17 @@
 {% endblock %}
 {% block content %}
     <div class ="jumbotron">
-        <h1 align = "center">Bootstrap Jumbotron</h1>
+        <h1> Index der Posts-App. </h1>
+        <p> Uhrzeit:{{ now }} </p>
+        {% if time.tm_hour < 12 %}
+            <p>Guten morgen!</p>
+        {% elif time.tm_hour < 18 %}
+            <p>Guten Tag!</p>
+        {% else %}
+            <p>Guten Abend!</p>
+        {% endif %}
     </div>
-    <h1>  Index der Posts-App.</h1>
-    <p>  Uhrzeit:{{ now }}</p>
 
-    {% if current.tm_hour < 12 %}
-        <p>Guten morgen!</p>
-    {% elif current.tm_hour < 18 %}
-        <p>Guten Tag!</p>
-    {% else %}
-        <p>Guten Abend!</p>
-    {% endif %}
     <style> table,td { border: 2px solid #000000;}</style>
     <table align="center">
     {%  for notice in notices %}
