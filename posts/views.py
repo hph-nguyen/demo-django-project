@@ -35,7 +35,7 @@ def new(request):
                                 pub_start=form.cleaned_data['start'],
                                 pub_end=form.cleaned_data['end'])
             newNotice.save()
-            return redirect( 'posts' )
+            return redirect('posts')
     context = {'form' : NoticeForm()}
     return render(request, 'posts/edit.html', context)
 

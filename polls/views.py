@@ -24,15 +24,15 @@ def index(request):
 
 
 def news(request):
-    if request.method == "POLLS":
-        form = NoticeForm( request.POST)
+    if request.method == "POST":
+        form = NoticeForm(request.POST)
         if form.is_valid():
             new = Notice( notice_title=form.cleaned_data['title'],
                           notice_text=form.cleaned_data['text'],
                           pub_start=form.cleaned_data['start'],
                           pub_end=form.cleaned_data['end'] )
             new.save()
-            return redirect( 'index' )
+            return redirect( 'polls' )
     context = {'form': NoticeForm()}
     return render( request, 'polls/edit.html', context )
 
@@ -42,4 +42,4 @@ def deletes(request, deleteId=None):
         delNotice = Notice.objects.get( id=deleteId )
         if delNotice != None:
             delNotice.delete()
-    return redirect( 'index' )
+    return redirect( 'polls' )
