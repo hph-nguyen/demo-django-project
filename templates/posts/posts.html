@@ -8,9 +8,16 @@
         <a class="navbar-brand" href="#">Navigation</a>
         <div class="container-fluid">
             <ul class="nav navbar-nav">
-                <li class="nav-item active"><a class="nav-link" href="http://127.0.0.1:8000">Home</a></li>
+                <li class="nav-item active"><a class="nav-link" href="http://127.0.0.1:8000/">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="https://www.google.com/">Google</a></li>
                 <li class="nav-item"><a class="nav-link" href="https://www.th-nuernberg.de/fakultaeten/efi/">EFI TH Nürnberg</a></li>
+                {% if not user.is_authenticated %}
+                    <li class="nav-item"><a class="nav-link" href="{% url 'login' %}?next=/posts">Anmelden</a></li>
+                {% endif %}
+                {% if user.is_authenticated %}
+                    <li class="nav-item"> <p class="nav-link"> Benutzer: {{user.username}}</p></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}?next=/posts">Abmelden</a></li>
+                {% endif %}
             </ul>
         </div>
     </nav>
@@ -37,7 +44,9 @@
             <td>{{ notice.notice_text }}</td>
             <td>{{ notice.pub_start }}</td>
             <td>{{ notice.pub_end}}</td>
-            <td><p><a href="{% url 'delete' deleteId=notice.id %}" class="btn btn-danger">Meldung löschen</a></p></td>
+           {% if user.is_staff %}
+                   <td><p><a href="{% url 'delete' deleteId=notice.id %}" class="btn btn-danger">Meldung löschen</a></p></td>
+           {%endif%}
         </tr>
     {%  endfor %}
     </table>

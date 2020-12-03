@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}
+Login
+{% endblock %}
+
+{% block content %}
+    <div class = "container" align="center">
+        <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            Benutzername <br> {{ form.username }} <br>
+            Passwort<br>{{ form.password }} <br><br>
+            <button type="submit" class="btn btn-success">Anmelden</button>
+            <input type="hidden" name="next" value="{{ next }}" />
+        </form>
+    {% if user.is_authenticated %}
+        <p><a href="{% url 'logout' %}?next=/posts" class="btn btn-warning">Abmelden</a></p>
+    {% endif %}
+    </div>
+{% endblock %}

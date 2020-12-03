@@ -5,7 +5,7 @@ from django.utils import timezone
 import logging
 from django.contrib.auth.decorators import login_required
 import time
-
+from django.contrib.admin.views.decorators import staff_member_required
 logger = None
 
 def initLogger():
@@ -37,6 +37,7 @@ def new(request):
     context = {'form' : NoticeForm()}
     return render(request, 'posts/edit.html', context)
 
+@staff_member_required
 def delete(request, deleteId=None):
     if deleteId !=None:
         delNotice = Notice.objects.get(id=deleteId)
