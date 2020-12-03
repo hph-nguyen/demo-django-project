@@ -1,10 +1,12 @@
-{% extends "base.html" %}
+{% extends "base_posts.html" %}
 
 {% block content %}
-<h1>Neue Nachricht</h1>
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="save btn btn-success">Speichern</button>
-</form>
+<div class="container">
+    <h1>Neue Nachricht</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-success">Speichern</button>
+    </form>
+</div>
 {% endblock %}

@@ -10,10 +10,11 @@ Login
             Benutzername <br> {{ form.username }} <br>
             Passwort<br>{{ form.password }} <br><br>
             <button type="submit" class="btn btn-success">Anmelden</button>
+            {% if user.is_authenticated %}
+                <a href="{% url 'logout' %}?next=/posts" class="btn btn-warning">Abmelden</a>
+            {% endif %}
             <input type="hidden" name="next" value="{{ next }}" />
         </form>
-    {% if user.is_authenticated %}
-        <p><a href="{% url 'logout' %}?next=/posts" class="btn btn-warning">Abmelden</a></p>
-    {% endif %}
+
     </div>
 {% endblock %}
