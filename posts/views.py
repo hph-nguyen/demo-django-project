@@ -23,7 +23,7 @@ def index(request):
     #notices = notices.filter(pub_end__gte=timezone.now())
     current = time.strftime(" %H:%M - %d.%m.%y",time.localtime())
     context = {'notices': notices, 'now': current, 'time':time.localtime()}  #dictionary type
-    return render (request, 'posts/posts.html',context)
+    return render ( request, 'posts/index.html', context )
 
 @login_required
 def new(request):
