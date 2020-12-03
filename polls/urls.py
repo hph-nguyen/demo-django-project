@@ -1,6 +1,8 @@
 from django.urls import path
-from . import views
+from polls import views
 
 urlpatterns = [
-    path('',views.index,name="POLLS")
+    path( '', views.index, name="index" ),
+    path( 'news', views.news, name='news' ),
+    path( 'delete/<int:deleteId>', views.deletes, name='deletes' ),
 ]

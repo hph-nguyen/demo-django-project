@@ -7,10 +7,10 @@
         {% for notice in notices %}
             <h3> {{ notice.notice_title }}</h3>
             <p>{{ notice.notice_text }}</p>
-            <p><a href="{% url 'delete'deleteId=notice.id %}"class = "btn btn-danger">Meldunglöschen</a> </p>
+            <p><a href="{% url 'deletes' deleteId=notice.id %}" class="btn btn-danger">Meldung löschen</a></p></td>
             <hr>
         {% endfor %}
-    <p><a href="{% url 'new' %}" class="btn btn-info">Neue Nachricht</a> </p>
+    <p><a href="{% url 'news' %}" class="btn btn-info">Neue Nachricht</a> </p>
     </div>
 {% endblock %}
 {% comment %}

@@ -29,17 +29,18 @@
     {% else %}
         <p>Guten Abend!</p>
     {% endif %}
-    <style> table,td { border: 2px solid black;}</style>
-    <table>
+    <style> table,td { border: 2px solid #000000;}</style>
+    <table align="center">
     {%  for notice in notices %}
        <tr>
             <td>{{ notice.notice_title }}</td>
             <td>{{ notice.notice_text }}</td>
             <td>{{ notice.pub_start }}</td>
             <td>{{ notice.pub_end}}</td>
+            <td><p><a href="{% url 'delete' deleteId=notice.id %}" class="btn btn-danger">Meldung löschen</a></p></td>
         </tr>
     {%  endfor %}
     </table>
-
-    <p><a href="{% url 'new' %}" class="btn btn-info" role="button">Neue Nachricht</a></p>
+    <br>
+    <p align="center"><a href="{% url 'new' %}" class="btn btn-primary" role="button">Neue Nachricht</a></p>
 {% endblock %}
