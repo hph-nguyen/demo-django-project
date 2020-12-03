@@ -1,4 +1,4 @@
-# demo-django-project
+# restart-project
 Migration:
 Start Terminal
 C:/...> python manage.py migration
