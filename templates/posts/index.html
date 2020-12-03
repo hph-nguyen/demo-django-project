@@ -17,10 +17,10 @@
     <table align="center" class = "table table-bordered table-striped">
     <thead>
         <tr>
-          <th scope="col">Title</th>
-          <th scope="col">Text</th>
-          <th scope="col">Start Date</th>
-          <th scope="col">End Date</th>
+            <th scope="col">Title</th>
+            <th scope="col">Text</th>
+            <th scope="col">Start Date</th>
+            <th scope="col">End Date</th>
         </tr>
         </thead>
         <tbody>
@@ -31,7 +31,7 @@
                 <td>{{ notice.pub_start }}</td>
                 <td>{{ notice.pub_end}}</td>
                {% if user.is_staff %}
-                       <td><p><a href="{% url 'delete' deleteId=notice.id %}" class="btn btn-danger">Meldung löschen</a></p></td>
+                   <td><p><a href="{% url 'delete' deleteId=notice.id %}" class="btn btn-danger">Meldung löschen</a></p></td>
                {%endif%}
             </tr>
         {%  endfor %}
