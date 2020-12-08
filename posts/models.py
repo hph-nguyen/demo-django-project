@@ -6,3 +6,4 @@ class Notice(models.Model):
     notice_text = models.CharField(max_length=400)
     pub_start = models.DateTimeField()
     pub_end = models.DateTimeField()
+
