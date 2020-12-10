@@ -53,7 +53,7 @@ def delete(request, deleteId=None):
     return redirect( 'posts' )
 
 
-@csrf_exempt
+#@csrf_exempt
 def notice_list(request):
     if request.method == 'GET':
         notices = Notice.objects.all()
@@ -68,7 +68,7 @@ def notice_list(request):
         return JsonResponse( serializer.errors, status=400 )
 
 
-@csrf_exempt
+#@csrf_exempt
 def notice_detail(request, id):
     try:
         notice = Notice.objects.get( id=id )
