@@ -19,7 +19,6 @@ def initLogger():
         logger.setLevel( logging.DEBUG )
         logger.addHandler( logging.StreamHandler() )
 
-
 def index(request):
     initLogger()
     notices = Notice.objects.all()
