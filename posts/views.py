@@ -12,7 +12,6 @@ from django.views.decorators.csrf import csrf_exempt
 
 logger = None
 
-
 def initLogger():
     global logger
     if logger == None:
