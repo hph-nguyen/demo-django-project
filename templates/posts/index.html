@@ -32,7 +32,7 @@
                 <td>{{ notice.pub_end}}</td>
                {% if user.is_staff %}
                    <td><p><a href="{% url 'delete' deleteId=notice.id %}" class="btn btn-danger">Meldung löschen</a></p></td>
-               {%endif%}
+               {% endif %}
             </tr>
         {%  endfor %}
         </tbody>
